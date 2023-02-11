@@ -1,7 +1,7 @@
 Package: GAPIT3
 Type: Package
 Title: GAPIT (Genomic Association and Prediction Integrated Tool)
-Version: 3.1.0
+Version: 3.1.0.230211
 Authors@R: c(
           person(given = "Jiabo", family = "Wang", middle = NULL, 
                  email = "wangjiaboyifeng@163.com",
@@ -36,4 +36,4 @@ LazyData: true
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3

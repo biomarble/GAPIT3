@@ -1640,6 +1640,8 @@ Memory=GAPIT.Memory(Memory=Memory,Infor="Manhattan plot")
   #print(dim(GWAS))
 
   if(file.output){
+    print("GAPIT.MAIN plot..." )
+    
     utils::write.table(GWAS, paste("GAPIT.Association.GWAS_Results.", name.of.trait, ".csv", sep = ""), quote = FALSE, sep = ",", row.names = FALSE,col.names = TRUE)
    utils::write.table(DTS, paste("GAPIT.Association.Df_tValue_StdErr.", name.of.trait, ".csv", sep = ""), quote = FALSE, sep = ",", row.names = FALSE,col.names = TRUE)
    if(!byPass) utils::write.table(GWAS.2, paste("GAPIT.Genotype.Allelic_Effect_Estimates.", name.of.trait, ".csv", sep = ""), quote = FALSE, sep = ",", row.names = FALSE,col.names = TRUE)

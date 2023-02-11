@@ -106,7 +106,9 @@ if(is.null(DP)&is.null(IC))#inputdata is other method result
         print("MAF plot..." )
         if(file.output&maf_pass) myMAF1=GAPIT.MAF(MAF=maf,P=ps,E=NULL,trait=name.of.trait)
         if(file.output)
-          {
+          {       
+          print("GAPIT.ID plot..." )
+
             utils::write.table(GWAS, paste("GAPIT.Association.GWAS_Results.", name.of.trait, ".csv", sep = ""), quote = FALSE, sep = ",", row.names = FALSE,col.names = TRUE)
             utils::write.table(DTS, paste("GAPIT.Association.Df_tValue_StdErr.", name.of.trait, ".csv", sep = ""), quote = FALSE, sep = ",", row.names = FALSE,col.names = TRUE)
           }#end file.output
@@ -192,7 +194,9 @@ if(is.null(DP)&is.null(IC))#inputdata is other method result
         GAPIT.Manhattan(GI.MP = GWAS[,2:4], name.of.trait = DP$name.of.trait, DPP=DP$DPP, plot.type = "Genomewise",cutOff=DP$cutOff,seqQTN=DP$QTN.position,plot.style=DP$plot.style,plot.bin=DP$plot.bin,chor_taxa=DP$chor_taxa)
         print("Manhattan plot (Chromosomewise)..." )
         GAPIT.Manhattan(GI.MP = GWAS[,2:4],GD=IC$GD[,-1], CG=DP$CG,name.of.trait = DP$name.of.trait, DPP=DP$DPP, plot.type = "Chromosomewise",cutOff=DP$cutOff,plot.bin=DP$plot.bin)
-        
+      }
+ #     if(DP$file.output)
+      {
         print("Association table..." )
         print("Joining tvalue and stderr" )
         if(all.equal(as.character(DP$chor_taxa),as.character(unique(sort(as.numeric(as.matrix(GWAS[,2]))))))!=TRUE)
@@ -208,6 +212,7 @@ if(is.null(DP)&is.null(IC))#inputdata is other method result
           GWAS[,2]=chro
         }
         DTS=cbind(GWAS[,1:3],df,tvalue,stderr,GWAS[,ncol(GWAS)])
+        
         utils::write.table(GWAS, paste("GAPIT.Association.GWAS_Results.", DP$name.of.trait, ".csv", sep = ""), quote = FALSE, sep = ",", row.names = FALSE,col.names = TRUE)
 
         colnames(DTS)=c("SNP","Chromosome","Position","DF","t Value","std Error","effect")  

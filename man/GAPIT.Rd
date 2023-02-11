@@ -12,40 +12,29 @@ GAPIT(
   KI = NULL,
   Z = NULL,
   CV = NULL,
-  CV.Inheritance = NULL,
-  GP = NULL,
-  GK = NULL,
-  testY = NULL,
-  group.from = 1e+06,
-  group.to = 1e+06,
-  group.by = 20,
-  DPP = 1e+05,
-  kinship.cluster = "average",
-  kinship.group = "Mean",
-  kinship.algorithm = "VanRaden",
+  Aver.Dis = 1000,
+  a2 = 0,
+  adim = 2,
+  acceleration = 0,
+  alpha = c(0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
   buspred = FALSE,
-  lmpred = FALSE,
-  FDRcut = FALSE,
   bin.from = 10000,
   bin.to = 10000,
   bin.by = 10000,
-  inclosure.from = 10,
-  inclosure.to = 10,
-  inclosure.by = 10,
-  SNP.P3D = TRUE,
-  SNP.effect = "Add",
-  SNP.impute = "Middle",
-  PCA.total = 0,
-  SNP.fraction = 1,
-  seed = NULL,
+  bin.size = c(1e+06),
+  bin.selection = c(10, 20, 50, 100, 200, 500, 1000),
   BINS = 20,
-  SNP.test = TRUE,
-  SNP.MAF = 0,
-  FDR.Rate = 1,
-  SNP.FDR = 1,
-  SNP.permutation = FALSE,
-  SNP.CV = NULL,
-  SNP.robust = "GLM",
+  converge = 1,
+  cutOff = 0.05,
+  category = 1,
+  cveff = NULL,
+  Create.indicator = FALSE,
+  CG = NULL,
+  CV.Inheritance = NULL,
+  DPP = 1e+05,
+  DP = NULL,
+  esp = 1e-10,
+  effectunit = 1,
   file.from = 1,
   file.to = 1,
   file.total = NULL,
@@ -57,78 +46,99 @@ GAPIT(
   file.GM = NULL,
   file.Ext.GD = NULL,
   file.Ext.GM = NULL,
-  ngrid = 100,
+  file.output = TRUE,
+  FDR.Rate = 1,
+  FDRcut = FALSE,
+  group.from = 1e+06,
+  group.to = 1e+06,
+  group.by = 20,
+  GTindex = NULL,
+  Geno.View.output = TRUE,
+  GP = NULL,
+  GK = NULL,
+  h2 = NULL,
+  inclosure.from = 10,
+  inclosure.to = 10,
+  inclosure.by = 10,
+  iteration.output = FALSE,
+  iteration.method = "accum",
+  inpch = NULL,
+  Inter.Plot = FALSE,
+  Inter.type = c("m", "q"),
+  kinship.cluster = "average",
+  kinship.group = "Mean",
+  kinship.algorithm = "Zhang",
   llim = -10,
-  ulim = 10,
-  esp = 1e-10,
+  lmpred = FALSE,
   LD.chromosome = NULL,
   LD.location = NULL,
   LD.range = NULL,
-  PCA.col = NULL,
-  PCA.3d = FALSE,
+  LD = 0.1,
+  model = "MLM",
+  method.GLM = "FarmCPU.LM",
+  method.sub = "reward",
+  method.sub.final = "reward",
+  method.bin = "static",
+  maxOut = 100,
+  memo = NULL,
+  maxLoop = 3,
+  Model.selection = FALSE,
+  Multi_iter = FALSE,
+  Major.allele.zero = FALSE,
+  Multiple_analysis = TRUE,
+  num_regwas = 10,
+  ncpus = 1,
+  ngrid = 100,
+  NQTN = NULL,
+  N.sig = NULL,
   NJtree.group = NULL,
   NJtree.type = c("fan", "unrooted"),
-  sangwich.top = NULL,
-  sangwich.bottom = NULL,
-  QC = TRUE,
-  GTindex = NULL,
-  LD = 0.1,
-  plot.bin = 10^5,
-  file.output = TRUE,
-  cutOff = 0.05,
-  Model.selection = FALSE,
+  opt = "extBIC",
   output.numerical = FALSE,
   output.hapmap = FALSE,
-  Create.indicator = FALSE,
-  Multi_iter = FALSE,
-  num_regwas = 10,
-  opt = "extBIC",
+  outpch = NULL,
   QTN = NULL,
   QTN.round = 1,
   QTN.limit = 0,
   QTN.update = TRUE,
   QTN.method = "Penalty",
-  Major.allele.zero = FALSE,
-  Random.model = FALSE,
-  method.GLM = "FarmCPU.LM",
-  method.sub = "reward",
-  method.sub.final = "reward",
-  method.bin = "static",
-  bin.size = c(1e+06),
-  bin.selection = c(10, 20, 50, 100, 200, 500, 1000),
-  memo = NULL,
-  Prior = NULL,
-  ncpus = 1,
-  maxLoop = 3,
-  threshold.output = 0.01,
-  Inter.Plot = FALSE,
-  Inter.type = c("m", "q"),
-  WS = c(1, 1000, 10000, 1e+05, 1e+06, 1e+07),
-  alpha = c(0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-  maxOut = 100,
+  QC = TRUE,
+  QC.Y = FALSE,
   QTN.position = NULL,
-  CG = NULL,
-  converge = 1,
-  iteration.output = FALSE,
-  acceleration = 0,
-  iteration.method = "accum",
-  PCA.View.output = TRUE,
-  Geno.View.output = TRUE,
-  plot.style = "Oceanic",
+  QTNDist = "normal",
+  r = 0.25,
+  Random.model = TRUE,
+  sangwich.top = NULL,
+  sangwich.bottom = NULL,
+  seed = NULL,
+  SNP.P3D = TRUE,
+  SNP.effect = "Add",
+  SNP.impute = "Middle",
+  SNP.fraction = 1,
+  SNP.test = TRUE,
+  SNP.MAF = 0,
+  SNP.FDR = 1,
+  SNP.permutation = FALSE,
+  SNP.CV = NULL,
+  SNP.robust = "GLM",
   SUPER_GD = NULL,
   SUPER_GS = FALSE,
-  h2 = NULL,
-  NQTN = NULL,
-  QTNDist = "normal",
-  effectunit = 1,
-  category = 1,
-  r = 0.25,
-  cveff = NULL,
-  a2 = 0,
-  adim = 2,
-  Multiple_analysis = FALSE,
-  model = "MLM",
-  Para = NULL
+  threshold.output = 0.01,
+  testY = NULL,
+  plot.style = "Oceanic",
+  plot.bin = 10^5,
+  PCA.total = 0,
+  PCA.col = NULL,
+  PCA.3d = FALSE,
+  PCA.legend = NULL,
+  PCA.View.output = TRUE,
+  Phenotype.View = TRUE,
+  Prior = NULL,
+  Para = NULL,
+  ulim = 10,
+  WS = c(1, 1000, 10000, 1e+05, 1e+06, 1e+07),
+  WS0 = NULL,
+  ws = 20
 )
 }
 \arguments{
@@ -146,33 +156,15 @@ GAPIT(
 
 \item{CV}{= NULL, Covariate matrix}
 
-\item{CV.Inheritance}{= NULL,}
+\item{a2}{= 0,}
 
-\item{GP}{= NULL,}
+\item{adim}{= 2,}
 
-\item{GK}{= NULL,}
+\item{acceleration}{= 0,}
 
-\item{testY}{= NULL,}
-
-\item{group.from}{= 1e+06,}
-
-\item{group.to}{= 1e+06,}
-
-\item{group.by}{= 20,}
-
-\item{DPP}{= 1e+05,}
-
-\item{kinship.cluster}{= "average", options: complete, ward, single, mcquitty, median, and centroid}
-
-\item{kinship.group}{= "Mean", options: Max, Min, and Median}
-
-\item{kinship.algorithm}{= "VanRaden", options: EMMA, Loiselle, VanRaden, Zhang}
+\item{alpha}{= c(0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),}
 
 \item{buspred}{= FALSE,}
-
-\item{lmpred}{= FALSE,}
-
-\item{FDRcut}{= FALSE,}
 
 \item{bin.from}{= 10000,}
 
@@ -180,39 +172,31 @@ GAPIT(
 
 \item{bin.by}{= 10000,}
 
-\item{inclosure.from}{= 10,}
+\item{bin.size}{= c(1e+06),}
 
-\item{inclosure.to}{= 10,}
-
-\item{inclosure.by}{= 10,}
-
-\item{SNP.P3D}{= TRUE,}
-
-\item{SNP.effect}{= "Add",}
-
-\item{SNP.impute}{= "Middle",}
-
-\item{PCA.total}{= 0,}
-
-\item{SNP.fraction}{= 1,}
-
-\item{seed}{= NULL,}
+\item{bin.selection}{= c(10, 20, 50, 100, 200, 500, 1000),}
 
 \item{BINS}{= 20,}
 
-\item{SNP.test}{= TRUE,}
+\item{converge}{= 1,}
 
-\item{SNP.MAF}{= 0,}
+\item{cutOff}{= 0.05,}
 
-\item{FDR.Rate}{= 1,}
+\item{category}{= 1,}
 
-\item{SNP.FDR}{= 1,}
+\item{cveff}{= NULL,}
 
-\item{SNP.permutation}{= FALSE,}
+\item{Create.indicator}{= FALSE,}
 
-\item{SNP.CV}{= NULL,}
+\item{CG}{= NULL,}
 
-\item{SNP.robust}{= "GLM",}
+\item{CV.Inheritance}{= NULL,}
+
+\item{DPP}{= 1e+05,}
+
+\item{esp}{= 1e-10,}
+
+\item{effectunit}{= 1,}
 
 \item{file.from}{= 1,}
 
@@ -236,13 +220,51 @@ GAPIT(
 
 \item{file.Ext.GM}{= NULL,}
 
-\item{ngrid}{= 100,}
+\item{file.output}{= TRUE,}
+
+\item{FDR.Rate}{= 1,}
+
+\item{FDRcut}{= FALSE,}
+
+\item{group.from}{= 1e+06,}
+
+\item{group.to}{= 1e+06,}
+
+\item{group.by}{= 20,}
+
+\item{GTindex}{= NULL,}
+
+\item{Geno.View.output}{= TRUE,}
+
+\item{GP}{= NULL,}
+
+\item{GK}{= NULL,}
+
+\item{h2}{= NULL,}
+
+\item{inclosure.from}{= 10,}
+
+\item{inclosure.to}{= 10,}
+
+\item{inclosure.by}{= 10,}
+
+\item{iteration.output}{= FALSE,}
+
+\item{iteration.method}{= "accum",}
+
+\item{Inter.Plot}{= FALSE,}
+
+\item{Inter.type}{= c("m", "q"),}
+
+\item{kinship.cluster}{= "average", options: complete, ward, single, mcquitty, median, and centroid}
+
+\item{kinship.group}{= "Mean", options: Max, Min, and Median}
+
+\item{kinship.algorithm}{= "VanRaden", options: EMMA, Loiselle, VanRaden, Zhang}
 
 \item{llim}{= -10,}
 
-\item{ulim}{= 10,}
-
-\item{esp}{= 1e-10,}
+\item{lmpred}{= FALSE,}
 
 \item{LD.chromosome}{= NULL,}
 
@@ -250,43 +272,49 @@ GAPIT(
 
 \item{LD.range}{= NULL,}
 
-\item{PCA.col}{= NULL,}
+\item{LD}{= 0.1,}
 
-\item{PCA.3d}{= FALSE,}
+\item{model}{= "MLM", options: MLM, GLM, CMLM, MMLM, SUPER, FarmCPU, gBLUP, or cBLUP}
+
+\item{method.GLM}{= "FarmCPU.LM",}
+
+\item{method.sub}{= "reward",}
+
+\item{method.sub.final}{= "reward",}
+
+\item{method.bin}{= "static",}
+
+\item{maxOut}{= 100,}
+
+\item{memo}{= NULL,}
+
+\item{maxLoop}{= 3,}
+
+\item{Model.selection}{= FALSE,}
+
+\item{Multi_iter}{= FALSE,}
+
+\item{Major.allele.zero}{= FALSE,}
+
+\item{Multiple_analysis}{= FALSE,}
+
+\item{num_regwas}{= 10,}
+
+\item{ncpus}{= 1,}
+
+\item{ngrid}{= 100,}
+
+\item{NQTN}{= NULL,}
 
 \item{NJtree.group}{= NULL,}
 
 \item{NJtree.type}{= c("fan", "unrooted"),}
 
-\item{sangwich.top}{= NULL,}
-
-\item{sangwich.bottom}{= NULL,}
-
-\item{QC}{= TRUE,}
-
-\item{GTindex}{= NULL,}
-
-\item{LD}{= 0.1,}
-
-\item{plot.bin}{= 10^5,}
-
-\item{file.output}{= TRUE,}
-
-\item{cutOff}{= 0.05,}
-
-\item{Model.selection}{= FALSE,}
+\item{opt}{= "extBIC",}
 
 \item{output.numerical}{= FALSE,}
 
 \item{output.hapmap}{= FALSE,}
-
-\item{Create.indicator}{= FALSE,}
-
-\item{Multi_iter}{= FALSE,}
-
-\item{num_regwas}{= 10,}
-
-\item{opt}{= "extBIC",}
 
 \item{QTN}{= NULL,}
 
@@ -298,87 +326,71 @@ GAPIT(
 
 \item{QTN.method}{= "Penalty",}
 
-\item{Major.allele.zero}{= FALSE,}
-
-\item{Random.model}{= FALSE,}
-
-\item{method.GLM}{= "FarmCPU.LM",}
-
-\item{method.sub}{= "reward",}
-
-\item{method.sub.final}{= "reward",}
-
-\item{method.bin}{= "static",}
-
-\item{bin.size}{= c(1e+06),}
-
-\item{bin.selection}{= c(10, 20, 50, 100, 200, 500, 1000),}
-
-\item{memo}{= NULL,}
-
-\item{Prior}{= NULL,}
-
-\item{ncpus}{= 1,}
-
-\item{maxLoop}{= 3,}
-
-\item{threshold.output}{= 0.01,}
-
-\item{Inter.Plot}{= FALSE,}
-
-\item{Inter.type}{= c("m", "q"),}
-
-\item{WS}{= c(1, 1000, 10000, 1e+05, 1e+06, 1e+07),}
-
-\item{alpha}{= c(0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),}
-
-\item{maxOut}{= 100,}
+\item{QC}{= TRUE,}
 
 \item{QTN.position}{= NULL,}
 
-\item{CG}{= NULL,}
+\item{QTNDist}{= "normal",}
 
-\item{converge}{= 1,}
+\item{r}{= 0.25,}
 
-\item{iteration.output}{= FALSE,}
+\item{Random.model}{= FALSE,}
 
-\item{acceleration}{= 0,}
+\item{sangwich.top}{= NULL,}
 
-\item{iteration.method}{= "accum",}
+\item{sangwich.bottom}{= NULL,}
 
-\item{PCA.View.output}{= TRUE,}
+\item{seed}{= NULL,}
 
-\item{Geno.View.output}{= TRUE,}
+\item{SNP.P3D}{= TRUE,}
 
-\item{plot.style}{= "Oceanic",}
+\item{SNP.effect}{= "Add",}
+
+\item{SNP.impute}{= "Middle",}
+
+\item{SNP.fraction}{= 1,}
+
+\item{SNP.test}{= TRUE,}
+
+\item{SNP.MAF}{= 0,}
+
+\item{SNP.FDR}{= 1,}
+
+\item{SNP.permutation}{= FALSE,}
+
+\item{SNP.CV}{= NULL,}
+
+\item{SNP.robust}{= "GLM",}
 
 \item{SUPER_GD}{= NULL,}
 
 \item{SUPER_GS}{= FALSE,}
 
-\item{h2}{= NULL,}
+\item{threshold.output}{= 0.01,}
 
-\item{NQTN}{= NULL,}
+\item{testY}{= NULL,}
 
-\item{QTNDist}{= "normal",}
+\item{plot.style}{= "Oceanic",}
 
-\item{effectunit}{= 1,}
+\item{plot.bin}{= 10^5,}
 
-\item{category}{= 1,}
+\item{PCA.total}{= 0,}
 
-\item{r}{= 0.25,}
+\item{PCA.col}{= NULL,}
 
-\item{cveff}{= NULL,}
+\item{PCA.3d}{= FALSE,}
 
-\item{a2}{= 0,}
+\item{PCA.View.output}{= TRUE,}
 
-\item{adim}{= 2,}
-
-\item{Multiple_analysis}{= FALSE,}
-
-\item{model}{= "MLM", options: MLM, GLM, CMLM, MMLM, SUPER, FarmCPU, gBLUP, or cBLUP}
+\item{Prior}{= NULL,}
 
 \item{Para}{= NULL}
+
+\item{ulim}{= 10,}
+
+\item{WS}{= c(1, 1000, 10000, 1e+05, 1e+06, 1e+07),}
+
+\item{WS0}{= 1e6,}
 }
 \value{
 A list
